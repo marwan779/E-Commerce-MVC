@@ -92,7 +92,6 @@ An online platform for selling books, built using .NET Core MVC. This applicatio
 
 ## **Database Design**
 
-1. **Tables and Attributes**
 1. **Products Table**
 Id (Primary Key): Unique identifier for each book.
 Title: Name of the book.
