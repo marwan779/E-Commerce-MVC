@@ -1,0 +1,59 @@
+1) Defining the connection string in the appsettings.json file in a .NET MVC project has several advantages:
+-------------------------------------------------------------------------------------------------------------------------------
+
+1. Centralized Configuration: The connection string is stored in a single location, 
+making it easier to manage and update if needed. You don't have to modify multiple files if the database details change.
+
+2. Environment-Specific Settings: You can have different versions of appsettings.json for different environments, 
+like appsettings.Development.json or appsettings.Production.json, allowing you to use different databases 
+in different environments without changing code.
+
+3. Separation of Concerns: It keeps the connection details separate from your code, 
+following best practices for clean architecture and making the codebase more maintainable.
+
+4. Security: By keeping sensitive data like connection strings out of the source code, 
+you reduce the risk of exposing sensitive information when sharing code or deploying 
+to different environments. You can further secure this by using tools like Azure Key
+Vault or environment variables for production environments.
+
+5. Ease of Configuration Management: Configuration can be easily updated without
+needing to recompile the application. This allows for flexible updates, especially during deployment.
+
+6. Supports Dependency Injection: The configuration can be easily injected into 
+services that require it using the built-in dependency injection system in .NET Core,
+making it more flexible and extensible.
+
+2) Rememper That Microsoft.EntityFrameworkCore.Tools Backge --> Enables the migrations commands
+----------------------------------------------------------------------------------------------------------------------------
+
+3) Adding Partial view in view 
+-----------------------------------
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial"></partial>
+}
+
+4) how to pass an id of an entity form view to action (asp-route-id = "@category.Id")
+----------------------------------------------------------------
+
+<a asp-controller="Category" asp-action="Edit" asp-route-id = "@category.Id" class="btn btn-primary">
+				<i class="bi bi-pencil-square"></i> Edit
+</a>
+
+
+5) View Model Is a specific model for a certian view (Strongly Typed View)
+----------------------------------------------------------------------------------------
+
+6) How to access wwwroot form any controller if needed
+---------------------------------------------------------------------
+1) inject the IwebHostEnvironment 
+
+ private readonly IWebHostEnvironment _webHostEnvironment;
+ public ProductController(IWebHostEnvironment webHostEnvironment)
+ {
+     _webHostEnvironment = webHostEnvironment;
+ }
+
+2) use the root file 
+
+string RootPath = _webHostEnvironment.WebRootPath;
