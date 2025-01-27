@@ -119,6 +119,7 @@ namespace BulkyWeb.Areas.Customer.Controllers
 			}
 
 			_unitOfWork.OrderHeader.Add(shoppingCartVM.OrderHeader);
+   			shoppingCartVM.OrderHeader.ApplicationUserId = UserId;
 			_unitOfWork.Save();
 
 			foreach (var Cart in shoppingCartVM.ShoppingCartList)
